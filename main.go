@@ -28,8 +28,9 @@ func main() {
 
 	// Loop infinitely
 	loop := beep.Loop(-1, streamer)
+	resampled := beep.ResampleRatio(4, 1.4, loop)
 
-	speaker.Play(beep.Seq(loop))
+	speaker.Play(beep.Seq(resampled))
 
 	// Read stdin to wait for preceding program to complete
 	scanner := bufio.NewScanner(os.Stdin)
